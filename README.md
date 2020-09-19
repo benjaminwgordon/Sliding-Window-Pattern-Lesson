@@ -111,5 +111,5 @@ Now its time to try implementing this ourselves.
 	<li>Work through the base implementation O(n^2)</li>
 	<li>Try to figure out the O(n) algorithm described here on your own</li>
 	<li>You can test your code by running <strong><i>npm run test</i></strong></li>
-	<li>Once your code passes all the tests, try uncommenting the timers at the bottom of the problem set files, then run them with <strong><i>node -filename-</i></strong>
+	<li>Once your code passes all the tests, try uncommenting the timers at the bottom of the problem set files, then run them with <strong><i>node [filename]</i></strong>
 </ol>
