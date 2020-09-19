@@ -67,15 +67,21 @@ const  maxSubArraySlow = function(arr,k){
 }
 ```
 
-This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data weve already seen?<br><br>
+This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data w've already seen?<br><br>
 
 
-Here is the same array from earlier with its windows highlighted<br>
-[**0,1,4,3,5**,6,4,3,2,3,4,5]<br>
-[0,**1,4,3,5,6**,4,3,2,3,4,5]<br>
-[0,1,**4,3,5,6,4**,3,2,3,4,5]<br>
-[0,1,4,**3,5,6,4,3**,2,3,4,5]<br>
-[0,1,4,3,**5,6,4,3,2**,3,4,5]<br>
-[0,1,4,3,5,**6,4,3,2,3**,4,5]<br>
-[0,1,4,3,5,6,**4,3,2,3,4**,5]<br>
-[0,1,4,3,5,6,4,**3,2,3,4,5**]<br>
+Here is the same array from earlier, displayed with its windows<br>
+
+[**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] <br>
+[0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] <br>
+[0,1,**4,3,5,6,4**,3,2,3,4,5] => [4,3,5,6,4] <br>
+[0,1,4,**3,5,6,4,3**,2,3,4,5] => [3,5,6,4,3] <br>
+[0,1,4,3,**5,6,4,3,2**,3,4,5] => [5,6,4,3,2] <br>
+[0,1,4,3,5,**6,4,3,2,3**,4,5] => [6,4,3,2,3] <br>
+[0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] <br>
+[0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] <br>
+
+Notice that in each progressive step, all of the elements except the first stay in the array as we move to the next window. <br> 
+
+[0,1,4,3,5]<br>
+  [1,4,3,5,6]<br>
