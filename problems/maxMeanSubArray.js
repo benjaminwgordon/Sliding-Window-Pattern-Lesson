@@ -12,3 +12,8 @@ const maxMeanSubArray = function(arr,k){
 
 // when you are ready, uncomment this function call and run this file with Node to see the difference!
 //require('../timers').timeMaxMeanSubArray(maxMeanSubArraySlow, maxMeanSubArray);
+
+module.exports = {
+    maxMeanSubArraySlow,
+    maxMeanSubArray
+}

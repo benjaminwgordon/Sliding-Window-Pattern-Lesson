@@ -14,3 +14,8 @@ const maxSubArray = function(arr,k) {
 // when you are ready, uncomment this function call and run this file with Node to see the difference!
 
 //require('../timers').timeMaxSubArray(maxSubArraySlow, maxSubArray);
+
+module.exports = {
+    maxSubArraySlow,
+    maxSubArray
+}
