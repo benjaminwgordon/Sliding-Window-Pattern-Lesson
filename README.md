@@ -101,8 +101,8 @@ ____[4,3,5,6,4]<br>
 <h4>Right now this does not look like a huge improvement, but what if our window was 10 elements long, or 100, or 1000?  Instead of doing 1000 operations for each window, now we only do 2. </h4>
 
 <h4>This is the power of the sliding window pattern</h4>
-
-<h3>Assignment</h3><br>
+<br>
+<h3>Assignment</h3>
 Now its time to try implementing this ourselves.
 <ol>
 	<li>Clone this repo</li>
