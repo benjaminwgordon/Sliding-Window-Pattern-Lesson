@@ -70,7 +70,7 @@ Window length: 5
 <h3>This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data we have already seen?</h3><br><br>
 
 
-Here is the same array from earlier, displayed with its windows<br>
+<h4>Here is the same array from earlier, displayed with its windows</h4><br>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] <br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] <br>
@@ -81,9 +81,19 @@ Here is the same array from earlier, displayed with its windows<br>
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] <br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] <br>
 
-Notice that in each progressive step, all of the elements except the first stay in the array as we move to the next window. <br> 
+<h4>Notice that in each progressive step, all of the elements except the first stay in the array as we move to the next window.</h4> <br> 
 
 [0,1,4,3,5]<br>
 __[1,4,3,5,6]<br>
 ____[4,3,5,6,4]<br>
 
+<h4>We can leverage this by looking only at what is entering and exiting the subarray when we make our calculations.  Lets keep track of the current sum of the subarray as we go through the array, and add any new values that enter it, and subtract any values that leave it.</h4><br>
+
+[**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => 0 entered array, 0 left array => currentSum += 0 => 13<br>
+[0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => 6 entered array, 0 left array => currentSum += 6 => 19<br>
+[0,1,**4,3,5,6,4**,3,2,3,4,5] => [4,3,5,6,4] => 4 entered array, 1 left array => currentSum += 3 => 22<br>
+[0,1,4,**3,5,6,4,3**,2,3,4,5] => [3,5,6,4,3] => 3 entered array, 4 left array => currentSum += -1 => 21<br>
+[0,1,4,3,**5,6,4,3,2**,3,4,5] => [5,6,4,3,2] => 2 entered array, 3 left array => currentSum += -1 => 20<br>
+[0,1,4,3,5,**6,4,3,2,3**,4,5] => [6,4,3,2,3] => 3 entered array, 5 left array => currentSum += -2 => 18<br>
+[0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => 4 entered array, 6 left array => currentSum += -2 => 16<br>
+[0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => 5 entered array, 4 left array => currentSum += 1 => 17<br>
