@@ -15,7 +15,7 @@ Window length: 5
 [0,1,4,3,5,6,**4,3,2,3,4**,5]<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**]<br>
 
-If we are searching for the continuous sub-array of length 5 with the largest sum inside this array, we now can easily see each of the subarrays we need to evaluate.
+<h4>If we are searching for the continuous sub-array of length 5 with the largest sum inside this array, we now can easily see each of the subarrays we need to evaluate.</h4>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5]<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6]<br>
@@ -26,7 +26,7 @@ If we are searching for the continuous sub-array of length 5 with the largest su
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4]<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5]<br>
 
-Then, we can evaluate their sums:
+<h4>Then, we can evaluate their sums:</h4>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
@@ -37,7 +37,7 @@ Then, we can evaluate their sums:
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => sum => 16<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => sum => 17<br>
 
-And easily identify which of them has the greatest sum<br>
+<h4>And easily identify which of them has the greatest sum</h4><br>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
@@ -48,26 +48,26 @@ And easily identify which of them has the greatest sum<br>
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => sum => 16<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => sum => 17<br>
 
-In Javascript:
-```
-// Returns the largest sum of any continuous subarray of arr with length k
-const  maxSubArraySlow = function(arr,k){
-	//check for invalid edge case inputs
-	if (arr.length < k || arr.length < 1 || k < 1) {return  null;}
-	
-	//get a starting maximum value
-	let  max = arr.slice(0,k).reduce((a,b)=>  a + b,0);
-	
-	//for each subarray, check its sum and if it is the largest, change max
-	for (let  i = 0; i <= arr.length - k; i++){
-		let  current = arr.slice(i,i+k).reduce((a,b)=>  a + b,0);
-		max = current > max ? current : max;
-	}
-	return  max;
-}
-```
+<h4>In Javascript:</h4>
 
-This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data w've already seen?<br><br>
+    // Returns the largest sum of any continuous subarray of arr with length k
+    const  maxSubArraySlow = function(arr,k){
+	    //check for invalid edge case inputs
+	    if (arr.length < k || arr.length < 1 || k < 1) {return  null;}
+	
+    	//get a starting maximum value
+	    let  max = arr.slice(0,k).reduce((a,b)=>  a + b,0);
+	
+		//for each subarray, check its sum and if it is the largest, change max
+		for (let  i = 0; i <= arr.length - k; i++){
+			let  current = arr.slice(i,i+k).reduce((a,b)=>  a + b,0);
+			max = current > max ? current : max;
+		}
+		return  max;
+	}
+
+
+<h4>This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data we have already seen?</h4><br><br>
 
 
 Here is the same array from earlier, displayed with its windows<br>
