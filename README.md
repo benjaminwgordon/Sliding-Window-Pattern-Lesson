@@ -14,7 +14,7 @@ Window length: 5
 [0,1,4,3,5,6,**4,3,2,3,4**,5]<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**]<br>
 
-<h3>If we are searching for the continuous sub-array of length 5 with the largest sum inside this array, we now can easily see each of the subarrays we need to evaluate.</h3>
+<h3>If we are searching for the continuous sub-array of length 5 with the largest sum inside this array, these are the subarrays that are exposed</h3>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5]<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6]<br>
@@ -25,7 +25,7 @@ Window length: 5
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4]<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5]<br>
 
-<h3>Then, we can evaluate their sums:</h3>
+<h3>Now, we can evaluate their sums:</h3>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
@@ -36,7 +36,7 @@ Window length: 5
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => sum => 16<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => sum => 17<br>
 
-<h3>And easily identify which of them has the greatest sum</h3><br>
+<h3>And identify which of them has the greatest sum</h3><br>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
@@ -86,16 +86,16 @@ Window length: 5
 __[1,4,3,5,6]<br>
 ____[4,3,5,6,4]<br>
 
-<h3>We can leverage this by looking only at what is entering and exiting the subarray when we make our calculations.  Lets keep track of the current sum of the subarray as we go through the array, and add any new values that enter it, and subtract any values that leave it.</h3><br>
+<h3>We can leverage this by looking only at what is entering and exiting the subarray when we make our calculations.  Lets keep track of the current sum of the subarray as we step through the array, and add any new values that enter it, and subtract any values that leave.</h3><br>
 
-[**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => 0 entered array, 0 left array => currentSum += 0 | currentSum = 13<br>
-[0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => 6 entered array, 0 left array => currentSum += 6 | currentSum = 19<br>
-[0,1,**4,3,5,6,4**,3,2,3,4,5] => [4,3,5,6,4] => 4 entered array, 1 left array => currentSum += 3 | currentSum = 22<br>
-[0,1,4,**3,5,6,4,3**,2,3,4,5] => [3,5,6,4,3] => 3 entered array, 4 left array => currentSum += -1 | currentSum = 21<br>
-[0,1,4,3,**5,6,4,3,2**,3,4,5] => [5,6,4,3,2] => 2 entered array, 3 left array => currentSum += -1 | currentSum = 20<br>
-[0,1,4,3,5,**6,4,3,2,3**,4,5] => [6,4,3,2,3] => 3 entered array, 5 left array => currentSum += -2 | currentSum = 18<br>
-[0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => 4 entered array, 6 left array => currentSum += -2 | currentSum = 16<br>
-[0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => 5 entered array, 4 left array => currentSum += 1 | currentSum = 17<br>
+[**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => add 0, subtract 0 | currentSum = 13<br>
+[0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => add 6, subtract 0 | currentSum = 19<br>
+[0,1,**4,3,5,6,4**,3,2,3,4,5] => [4,3,5,6,4] => add 4, subtract 1 | currentSum = 22<br>
+[0,1,4,**3,5,6,4,3**,2,3,4,5] => [3,5,6,4,3] => add 3, subtract 4 | currentSum = 21<br>
+[0,1,4,3,**5,6,4,3,2**,3,4,5] => [5,6,4,3,2] => add 2, subtract 3 | currentSum = 20<br>
+[0,1,4,3,5,**6,4,3,2,3**,4,5] => [6,4,3,2,3] => add 3, subtract 4 | currentSum = 18<br>
+[0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => add 4, subtract 6 | currentSum = 16<br>
+[0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => add 5, subtract 4 | currentSum = 17<br>
 
 <h3>Right now this does not look like a huge improvement, but what if our window was 10 elements long, or 100, or 1000?  Instead of doing 1000 operations for each window, now we only do 2. </h3>
 
