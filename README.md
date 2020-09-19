@@ -3,7 +3,7 @@ Sliding Window Pattern
 <h4>The sliding window pattern is a useful design pattern when we want to find a continuous subset of data that matches some conditions.</h4>
 <h4>We can imagine a "Window" that we can look through to see a smaller portion of the data. If we "slide" that window across our data, it exposes a continuous subset of the data with a constant length.</h4>
 
-Given this array: [0,1,4,3,5,6,4,3,2,3,4,5]
+Given this array: [0,1,4,3,5,6,4,3,2,3,4,5]<br>
 Window length: 5
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5]<br>
@@ -67,4 +67,15 @@ const  maxSubArraySlow = function(arr,k){
 }
 ```
 
-This algorithm works, but it is slow -- O(n^2)
+This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data weve already seen?<br><br>
+
+
+Here is the same array from earlier with its windows highlighted<br>
+[**0,1,4,3,5**,6,4,3,2,3,4,5]<br>
+[0,**1,4,3,5,6**,4,3,2,3,4,5]<br>
+[0,1,**4,3,5,6,4**,3,2,3,4,5]<br>
+[0,1,4,**3,5,6,4,3**,2,3,4,5]<br>
+[0,1,4,3,**5,6,4,3,2**,3,4,5]<br>
+[0,1,4,3,5,**6,4,3,2,3**,4,5]<br>
+[0,1,4,3,5,6,**4,3,2,3,4**,5]<br>
+[0,1,4,3,5,6,4,**3,2,3,4,5**]<br>
