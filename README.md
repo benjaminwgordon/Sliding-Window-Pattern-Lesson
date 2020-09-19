@@ -102,7 +102,7 @@ ____[4,3,5,6,4]<br>
 
 <h4>This is the power of the sliding window pattern</h4>
 
-<h3>Assignment</h3>
+<h3>Assignment</h3><br>
 Now its time to try implementing this ourselves.
 <ol>
 	<li>Clone this repo</li>
