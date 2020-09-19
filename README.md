@@ -67,10 +67,10 @@ Window length: 5
 	}
 
 
-<h3>This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data we have already seen?</h3><br><br>
+<h3>This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data we have already seen?</h3><br>
 
 
-<h4>Here is the same array from earlier, displayed with its windows</h4><br>
+<h3>Here is the same array from earlier, displayed with its windows</h3><br>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] <br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] <br>
@@ -81,13 +81,13 @@ Window length: 5
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] <br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] <br>
 
-<h4>Notice that in each progressive step, all of the elements except the first stay in the array as we move to the next window.</h4> <br> 
+<h3>Notice that in each progressive step, all of the elements except the first stay in the array as we move to the next window.</h3> <br> 
 
 [0,1,4,3,5]<br>
 __[1,4,3,5,6]<br>
 ____[4,3,5,6,4]<br>
 
-<h4>We can leverage this by looking only at what is entering and exiting the subarray when we make our calculations.  Lets keep track of the current sum of the subarray as we go through the array, and add any new values that enter it, and subtract any values that leave it.</h4><br>
+<h3>We can leverage this by looking only at what is entering and exiting the subarray when we make our calculations.  Lets keep track of the current sum of the subarray as we go through the array, and add any new values that enter it, and subtract any values that leave it.</h3><br>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => 0 entered array, 0 left array => currentSum += 0 | currentSum = 13<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => 6 entered array, 0 left array => currentSum += 6 | currentSum = 19<br>
@@ -98,9 +98,9 @@ ____[4,3,5,6,4]<br>
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => 4 entered array, 6 left array => currentSum += -2 | currentSum = 16<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => 5 entered array, 4 left array => currentSum += 1 | currentSum = 17<br>
 
-<h4>Right now this does not look like a huge improvement, but what if our window was 10 elements long, or 100, or 1000?  Instead of doing 1000 operations for each window, now we only do 2. </h4>
+<h3>Right now this does not look like a huge improvement, but what if our window was 10 elements long, or 100, or 1000?  Instead of doing 1000 operations for each window, now we only do 2. </h3>
 
-<h4>This is the power of the sliding window pattern</h4>
+<h3>This is the power of the sliding window pattern</h3>
 <br>
 <h3>Assignment</h3>
 Now its time to try implementing this ourselves.
