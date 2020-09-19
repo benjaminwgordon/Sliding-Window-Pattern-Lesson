@@ -97,3 +97,20 @@ ____[4,3,5,6,4]<br>
 [0,1,4,3,5,**6,4,3,2,3**,4,5] => [6,4,3,2,3] => 3 entered array, 5 left array => currentSum += -2 | currentSum = 18<br>
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => 4 entered array, 6 left array => currentSum += -2 | currentSum = 16<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => 5 entered array, 4 left array => currentSum += 1 | currentSum = 17<br>
+
+<h4>Right now this does not look like a huge improvement, but what if our window was 10 elements long, or 100, or 1000?  Instead of doing 1000 operations for each window, now we only do 2. </h4>
+
+<h4>This is the power of the sliding window pattern</h4>
+```
+<h3>Assignment</h3>
+Now its time to try implementing this ourselves.
+<ol>
+	<li>Clone this repo</li>
+	<li><strong><i>npm install</i></strong></li>
+	<li>Open the problems folder, and start with the maxSubArray.js file</li>
+	<li>Work through the base implementation O(n^2)</li>
+	<li>Try to figure out the O(n) algorithm described here on your own</li>
+	<li>You can test your code by running <strong><i>npm run test</i></strong></li>
+	<li>Once your code passes all the tests, try uncommenting the timers at the bottom of the problem set files, then run them with <strong><i>node -filename-</i></strong>
+</ol>
+```
