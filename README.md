@@ -1,61 +1,50 @@
-
-  
-
-# Sharkbert Study Group
-
-   ## Sliding Window Pattern
-<h4>The sliding window pattern is a useful design pattern when we want to find a continuous subset of data that matches some conditions.  <h/4>
-
-<h4>We can imagine a "Window" that we can look through to see a smaller portion of the data.  If we "slide" that window across our data, it exposes a continuous subset of the data with a constant length.<h/4>
-
-Given this array: [0,1,4,3,5,6,4,3,2,3,4,5] 
+Sharkbert Study Group
+Sliding Window Pattern
+The sliding window pattern is a useful design pattern when we want to find a continuous subset of data that matches some conditions.
+We can imagine a "Window" that we can look through to see a smaller portion of the data. If we "slide" that window across our data, it exposes a continuous subset of the data with a constant length.
+Given this array: [0,1,4,3,5,6,4,3,2,3,4,5]
 Window length: 5
 
-[<mark>0,1,4,3,5</mark>,6,4,3,2,3,4,5]
-[0,<mark>1,4,3,5,6</mark>,4,3,2,3,4,5]
-[0,1,<mark>4,3,5,6,4</mark>,3,2,3,4,5]
-[0,1,4,<mark>3,5,6,4,3</mark>,2,3,4,5]
-[0,1,4,3,<mark>5,6,4,3,2</mark>,3,4,5]
-[0,1,4,3,5,<mark>6,4,3,2,3</mark>,4,5]
-[0,1,4,3,5,6,<mark>4,3,2,3,4</mark>,5]
-[0,1,4,3,5,6,4,<mark>3,2,3,4,5</mark>]
+[0,1,4,3,5,6,4,3,2,3,4,5]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5]<br>
 
-<h4>If we are searching for the continuous sub-array of length 5 with the largest sum inside this array, we now can easily see each of the subarrays we need to evaluate.</h4>  
+If we are searching for the continuous sub-array of length 5 with the largest sum inside this array, we now can easily see each of the subarrays we need to evaluate.
+[0,1,4,3,5,6,4,3,2,3,4,5] => [0,1,4,3,5]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [1,4,3,5,6]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [4,3,5,6,4]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [3,5,6,4,3]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [5,6,4,3,2]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [6,4,3,2,3]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [4,3,2,3,4]<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [3,2,3,4,5]<br>
 
-[<mark>0,1,4,3,5</mark>,6,4,3,2,3,4,5] => [0,1,4,3,5]
-[0,<mark>1,4,3,5,6</mark>,4,3,2,3,4,5] => [1,4,3,5,6]
-[0,1,<mark>4,3,5,6,4</mark>,3,2,3,4,5] => [4,3,5,6,4]
-[0,1,4,<mark>3,5,6,4,3</mark>,2,3,4,5] => [3,5,6,4,3]
-[0,1,4,3,<mark>5,6,4,3,2</mark>,3,4,5] => [5,6,4,3,2]
-[0,1,4,3,5,<mark>6,4,3,2,3</mark>,4,5] => [6,4,3,2,3]
-[0,1,4,3,5,6,<mark>4,3,2,3,4</mark>,5] => [4,3,2,3,4]
-[0,1,4,3,5,6,4,<mark>3,2,3,4,5</mark>] => [3,2,3,4,5]
+Then, we can evaluate their sums:
+[0,1,4,3,5,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [4,3,5,6,4] => sum => 22<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [3,5,6,4,3] => sum => 21<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [5,6,4,3,2] => sum => 20<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [6,4,3,2,3] => sum => 18<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [4,3,2,3,4] => sum => 16<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [3,2,3,4,5] => sum => 17<br>
 
-<h4>Then, we can evaluate their sums: </h4>
+And easily identify which of them has the greatest sum<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [4,3,5,6,4] => sum => 22<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [3,5,6,4,3] => sum => 21 => greatest sum<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [5,6,4,3,2] => sum => 20<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [6,4,3,2,3] => sum => 18<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [4,3,2,3,4] => sum => 16<br>
+[0,1,4,3,5,6,4,3,2,3,4,5] => [3,2,3,4,5] => sum => 17<br>
 
-[<mark>0,1,4,3,5</mark>,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
-[0,<mark>1,4,3,5,6</mark>,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
-[0,1,<mark>4,3,5,6,4</mark>,3,2,3,4,5] => [4,3,5,6,4] => sum => 22<br>
-[0,1,4,<mark>3,5,6,4,3</mark>,2,3,4,5] => [3,5,6,4,3] => sum => 21<br>
-[0,1,4,3,<mark>5,6,4,3,2</mark>,3,4,5] => [5,6,4,3,2] => sum => 20<br>
-[0,1,4,3,5,<mark>6,4,3,2,3</mark>,4,5] => [6,4,3,2,3] => sum => 18<br>
-[0,1,4,3,5,6,<mark>4,3,2,3,4</mark>,5] => [4,3,2,3,4] => sum => 16<br>
-[0,1,4,3,5,6,4,<mark>3,2,3,4,5</mark>] => [3,2,3,4,5] => sum => 17<br>
-
-<h4>And easily identify which of them has the greatest sum</h4>
-
-[<mark>0,1,4,3,5</mark>,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13
-[0,<mark>1,4,3,5,6</mark>,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19
-[0,1,<mark>4,3,5,6,4</mark>,3,2,3,4,5] => [4,3,5,6,4] => sum => 22
-[0,1,4,<mark>3,5,6,4,3</mark>,2,3,4,5] => [3,5,6,4,3] => sum => 21 => greatest sum
-[0,1,4,3,<mark>5,6,4,3,2</mark>,3,4,5] => [5,6,4,3,2] => sum => 20
-[0,1,4,3,5,<mark>6,4,3,2,3</mark>,4,5] => [6,4,3,2,3] => sum => 18
-[0,1,4,3,5,6,<mark>4,3,2,3,4</mark>,5] => [4,3,2,3,4] => sum => 16
-[0,1,4,3,5,6,4,<mark>3,2,3,4,5</mark>] => [3,2,3,4,5] => sum => 17
-
-<h4> In pseudocode: </h4>
-
-```
+In pseudocode:
 // Returns the largest sum of any continuous subarray of arr with length k
 const  maxSubArraySlow = function(arr,k){
 	//check for invalid edge case inputs
@@ -71,5 +60,4 @@ const  maxSubArraySlow = function(arr,k){
 	}
 	return  max;
 }
-```
-<h4>This algorithm works, but it is slow -- O(n^2)</h4>
+This algorithm works, but it is slow -- O(n^2)
