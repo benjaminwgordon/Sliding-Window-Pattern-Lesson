@@ -97,7 +97,7 @@ ____[4,3,5,6,4]<br>
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => add 4, subtract 6 | currentSum = 16<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => add 5, subtract 4 | currentSum = 17<br>
 
-<h3>Right now this does not look like a huge improvement, but what if our window was 10 elements long, or 100, or 1000?  Instead of doing 1000 operations for each window, now we only do 2. </h3>
+<h3>Right now this does not look like a huge improvement, but what if our window was 10 elements long, or 100, or 1000?  Instead of adding up all 1000 elements in our window, we only need to add the entering element and subtract the leaving element. </h3>
 
 <h3>This is the power of the sliding window pattern</h3>
 <br>
