@@ -84,4 +84,6 @@ Here is the same array from earlier, displayed with its windows<br>
 Notice that in each progressive step, all of the elements except the first stay in the array as we move to the next window. <br> 
 
 [0,1,4,3,5]<br>
-  [1,4,3,5,6]<br>
+__[1,4,3,5,6]<br>
+____[4,3,5,6,4]<br>
+______[3,5,6,4,3]<br>
