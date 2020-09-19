@@ -1,0 +1,14 @@
+{
+  "name": "sliding-window",
+  "version": "1.0.0",
+  "description": "Teaching tools, problems, and automated tests for sliding window pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Ben Gordon",
+  "license": "MIT",
+  "dependencies": {
+    "performance-now": "^2.1.0"
+  }
+}
