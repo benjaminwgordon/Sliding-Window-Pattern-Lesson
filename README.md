@@ -1,7 +1,8 @@
 Sharkbert Study Group
 Sliding Window Pattern
-The sliding window pattern is a useful design pattern when we want to find a continuous subset of data that matches some conditions.
-We can imagine a "Window" that we can look through to see a smaller portion of the data. If we "slide" that window across our data, it exposes a continuous subset of the data with a constant length.
+<h4>The sliding window pattern is a useful design pattern when we want to find a continuous subset of data that matches some conditions.</h4>
+<h4>We can imagine a "Window" that we can look through to see a smaller portion of the data. If we "slide" that window across our data, it exposes a continuous subset of the data with a constant length.</h4>
+
 Given this array: [0,1,4,3,5,6,4,3,2,3,4,5]
 Window length: 5
 
@@ -40,14 +41,15 @@ And easily identify which of them has the greatest sum<br>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
-[0,1,**4,3,5,6,4**,3,2,3,4,5 => [4,3,5,6,4] => sum => 22<br>
-[0,1,4,**3,5,6,4,3**,2,3,4,5] => sum => 21 => greatest sum<br>
+[0,1,**4,3,5,6,4**,3,2,3,4,5] => [4,3,5,6,4] => sum => 22 => **Largest Sum = 22**<br>
+[0,1,4,**3,5,6,4,3**,2,3,4,5] => [3,5,6,4,3] => sum => 21<br>
 [0,1,4,3,**5,6,4,3,2**,3,4,5] => [5,6,4,3,2] => sum => 20<br>
 [0,1,4,3,5,**6,4,3,2,3**,4,5] => [6,4,3,2,3] => sum => 18<br>
-[0,1,4,3,5,6,**4,3,2,3,4**,5] => sum => 16<br>
-[0,1,4,3,5,6,4,**3,2,3,4,5**] => sum => 17<br>
+[0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => sum => 16<br>
+[0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => sum => 17<br>
 
-In pseudocode:
+In Javascript:
+```
 // Returns the largest sum of any continuous subarray of arr with length k
 const  maxSubArraySlow = function(arr,k){
 	//check for invalid edge case inputs
@@ -63,4 +65,6 @@ const  maxSubArraySlow = function(arr,k){
 	}
 	return  max;
 }
+```
+
 This algorithm works, but it is slow -- O(n^2)
