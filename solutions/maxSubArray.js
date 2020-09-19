@@ -1,4 +1,4 @@
-//Slow Version (O(n^2))
+// Naive Solution (O(n^2))
 const maxSubArraySlow = function(arr,k){
     if (arr.length < k || arr.length < 1 || k < 1) {return null;}
     let max = arr.slice(0,k).reduce((a,b)=> a + b,0);
@@ -9,7 +9,7 @@ const maxSubArraySlow = function(arr,k){
     return max;
 }
 
-//Fast Version O(n)
+// Optimized Solution O(n)
 const maxSubArray = function(arr,k){
     if (arr.length < k || arr.length < 1 || k < 1) {return null;}
     let max = arr.slice(0,k).reduce((a,b)=> a + b,0);
@@ -21,8 +21,6 @@ const maxSubArray = function(arr,k){
     }
     return max;
 }
-
-
 
 module.exports = {
     maxSubArraySlow,

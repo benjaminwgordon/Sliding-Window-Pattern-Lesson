@@ -1,4 +1,6 @@
 /* Given an array of integers arr and a positive integer k, find the series of elements of arr with length k with the largest mean */
+
+// Naive Solution O(n^2)
 const maxMeanSubArraySlow = (arr, k) => {
     if (arr.length < k || arr.length < 1 || k < 1) {return null;}
     let max = arr.slice(0,k).reduce((a,b)=> a + b/k,0);
@@ -9,6 +11,7 @@ const maxMeanSubArraySlow = (arr, k) => {
     return max;
 }
 
+// Optimized Solution O(n)
 const maxMeanSubArray = function(arr,k){
     if (arr.length < k || arr.length < 1 || k < 1) {return null;}
     let max = arr.slice(0,k).reduce((a,b)=> a + b/k,0);
