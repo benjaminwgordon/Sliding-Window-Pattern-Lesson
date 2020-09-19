@@ -1,7 +1,7 @@
 Sharkbert Study Group
 Sliding Window Pattern
-<h4>The sliding window pattern is a useful design pattern when we want to find a continuous subset of data that matches some conditions.</h4>
-<h4>We can imagine a "Window" that we can look through to see a smaller portion of the data. If we "slide" that window across our data, it exposes a continuous subset of the data with a constant length.</h4>
+<h3>The sliding window pattern is a useful design pattern when we want to find a continuous subset of data that matches some conditions.</h3>
+<h3>We can imagine a "Window" that we can look through to see a smaller portion of the data. If we "slide" that window across our data, it exposes a continuous subset of the data with a constant length.</h3>
 
 Given this array: [0,1,4,3,5,6,4,3,2,3,4,5]<br>
 Window length: 5
@@ -15,7 +15,7 @@ Window length: 5
 [0,1,4,3,5,6,**4,3,2,3,4**,5]<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**]<br>
 
-<h4>If we are searching for the continuous sub-array of length 5 with the largest sum inside this array, we now can easily see each of the subarrays we need to evaluate.</h4>
+<h3>If we are searching for the continuous sub-array of length 5 with the largest sum inside this array, we now can easily see each of the subarrays we need to evaluate.</h3>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5]<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6]<br>
@@ -26,7 +26,7 @@ Window length: 5
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4]<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5]<br>
 
-<h4>Then, we can evaluate their sums:</h4>
+<h3>Then, we can evaluate their sums:</h3>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
@@ -37,7 +37,7 @@ Window length: 5
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => sum => 16<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => sum => 17<br>
 
-<h4>And easily identify which of them has the greatest sum</h4><br>
+<h3>And easily identify which of them has the greatest sum</h3><br>
 
 [**0,1,4,3,5**,6,4,3,2,3,4,5] => [0,1,4,3,5] => sum => 13<br>
 [0,**1,4,3,5,6**,4,3,2,3,4,5] => [1,4,3,5,6] => sum => 19<br>
@@ -48,7 +48,7 @@ Window length: 5
 [0,1,4,3,5,6,**4,3,2,3,4**,5] => [4,3,2,3,4] => sum => 16<br>
 [0,1,4,3,5,6,4,**3,2,3,4,5**] => [3,2,3,4,5] => sum => 17<br>
 
-<h4>In Javascript:</h4>
+<h3>In Javascript:</h3>
 
     // Returns the largest sum of any continuous subarray of arr with length k
     const  maxSubArraySlow = function(arr,k){
@@ -67,7 +67,7 @@ Window length: 5
 	}
 
 
-<h4>This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data we have already seen?</h4><br><br>
+<h3>This algorithm works, but it is slow O(n^2) because we have to look at each element of each subarray each time the window slides.  What if we didn't have to keep looking at data we have already seen?</h3><br><br>
 
 
 Here is the same array from earlier, displayed with its windows<br>
