@@ -9,6 +9,7 @@
   "author": "Ben Gordon",
   "license": "MIT",
   "dependencies": {
+    "jest": "^26.4.2",
     "performance-now": "^2.1.0"
   }
 }
