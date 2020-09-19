@@ -1,5 +1,4 @@
-Sharkbert Study Group
-Sliding Window Pattern
+<h2>Sliding Window Pattern</h2>
 <h3>The sliding window pattern is a useful design pattern when we want to find a continuous subset of data that matches some conditions.</h3>
 <h3>We can imagine a "Window" that we can look through to see a smaller portion of the data. If we "slide" that window across our data, it exposes a continuous subset of the data with a constant length.</h3>
 
