@@ -1,5 +1,5 @@
 //change later to ../problems
-const {maxSubArray, maxSubArraySlow} = require('../solutions/maxSubArray');
+const {maxSubArray, maxSubArraySlow} = require('../problems/maxSubArray');
 
 test('Slow Algo: edge condition: window larger than input array', ()=>{
     expect(maxSubArraySlow([1,2,3,4,5], 7)).toBeNull();

@@ -1,4 +1,4 @@
-const {maxMeanSubArray, maxMeanSubArraySlow} = require('../solutions/maxMeanSubArray');
+const {maxMeanSubArray, maxMeanSubArraySlow} = require('../problems/maxMeanSubArray');
 
 test('Slow Algo: edge condition: window larger than input array', ()=>{
     expect(maxMeanSubArraySlow([1,2,3,4,5], 7)).toBeNull();
